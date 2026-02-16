@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <style>
+    @font-face {
+      font-family: "Signerica";
+      src: url("./Signerica_Fat.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #e5e5d9;
+      color: #3a5575;
+      font-family: "Signerica", cursive;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .home-icon {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <a href="./index.html?view=overview" aria-label="Terug naar overzicht">
+    <img src="./Foto2.png" alt="Home" class="home-icon">
+  </a>
+  <h1>about</h1>
+</body>
+</html>

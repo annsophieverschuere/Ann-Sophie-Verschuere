@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Ann-Sophie Verschuere</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #e5e5d9;
+      --blue: #3a5575;
+      --shadow: rgba(0, 0, 0, 0.35);
+      --hero-top: clamp(90px, 16.7vh, 200px);
+      --hero-gap: clamp(56px, calc(6.47vmin + 20px), 75px);
+      --title-size: clamp(36px, 7.08vmin, 60px);
+      --bottom-offset: 60px;
+      --bottom-gap: 30px;
+      --name-size: clamp(16px, 2.52vmin, 21px);
+      --name-spacing: clamp(4px, 0.95vmin, 8px);
+      --logo-size: 48.4px;
+      --block-spacing: 40px;
+      --hero-shadow: 2.828px 2.828px 9px 0 rgba(0, 0, 0, 0.35);
+      --hero-image-max-width: 396px;
+      --hero-image-max-height: 60.5vh;
+      --hero-image-min-height: 132px;
+    }
+
+    @font-face {
+      font-family: "Signerica Fat";
+      src: url("./Signerica_Fat.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Signerica";
+      src: url("./Signerica_Fat.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .landing {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    .hero-block {
+      position: fixed;
+      left: 50%;
+      top: var(--hero-top);
+      transform: translateX(-50%) scale(1.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--hero-gap);
+      text-align: center;
+      width: min(100%, 1120px);
+      padding: 0 16px;
+    }
+
+    .title {
+      margin: 0;
+      font-family: "Signerica Fat", cursive;
+      font-size: var(--title-size);
+      font-weight: lighter;
+      line-height: 0.0;
+      color: var(--blue);
+      text-shadow: 0 4px 4px var(--shadow);
+    }
+
+    .hero-image {
+      width: auto;
+      height: auto;
+      max-width: min(var(--hero-image-max-width), 99vw);
+      max-height: min(
+        var(--hero-image-max-height),
+        max(
+          var(--hero-image-min-height),
+          calc(
+            100vh - var(--hero-top) - var(--title-size) - var(--hero-gap) -
+            var(--bottom-offset) - var(--bottom-gap) - var(--name-size) -
+            var(--logo-size) - var(--block-spacing)
+          )
+        )
+      );
+      border-radius: 2px;
+      box-shadow: var(--hero-shadow);
+      display: block;
+    }
+
+    .bottom-block {
+      position: fixed;
+      left: 50%;
+      bottom: var(--bottom-offset);
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--bottom-gap);
+      text-align: center;
+    }
+
+    .name {
+      margin: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: var(--name-size);
+      letter-spacing: var(--name-spacing);
+      font-weight: 500;
+      line-height: 1;
+      color: var(--blue);
+    }
+
+    .logo {
+      width: var(--logo-size);
+      display: block;
+    }
+
+    .overview {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .overview-home-icon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      cursor: pointer;
+    }
+
+    .overview-menu {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: clamp(20px, 4vh, 56px);
+      padding: clamp(120px, 16vh, 220px) 24px clamp(60px, 10vh, 140px);
+    }
+
+    .overview-menu a {
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      font-family: "Signerica Fat", cursive;
+      font-size: var(--title-size);
+      font-weight: lighter;
+      line-height: 0.0;
+      color: var(--blue);
+      text-shadow: 0 4px 4px var(--shadow);
+      transition:
+        font-size 0.55s ease-in-out,
+        letter-spacing 0.55s ease-in-out,
+        line-height 0.55s ease-in-out,
+        text-shadow 0.55s ease-in-out,
+        opacity 0.55s ease-in-out;
+    }
+
+    .overview-menu a::before {
+      content: "";
+      position: absolute;
+      inset: -18px -28px;
+    }
+
+    .overview-menu a:hover,
+    .overview-menu a:active,
+    .overview-menu a:focus-visible {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: calc(var(--name-size) * 1.728);
+      letter-spacing: calc(var(--name-spacing) * 1.728);
+      font-weight: 500;
+      line-height: 1;
+      text-shadow: none;
+      opacity: 1;
+    }
+
+    .overview-title {
+      margin: 0;
+      color: var(--blue);
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 500;
+      font-size: clamp(32px, 6vmin, 72px);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    #landingPage.animate__animated {
+      --animate-duration: 1.8s;
+    }
+
+    @keyframes customBackInDown {
+      0% {
+        transform: translateY(-1200px) scale(0.8);
+        opacity: 0.7;
+      }
+      80% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes customBackOutDown {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      20% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(1200px) scale(0.8);
+        opacity: 0.7;
+      }
+    }
+
+    .animate__customBackInDown {
+      animation-name: customBackInDown;
+    }
+
+    .animate__customBackOutDown {
+      animation-name: customBackOutDown;
+    }
+
+    /* iPad Pro: foto 1 groter zodat de ruimte tussen beide blokken kleiner wordt */
+    @media (min-width: 834px) and (max-width: 1366px) and (min-height: 1024px) and (max-height: 1366px) {
+      :root {
+        --hero-image-max-width: 470px;
+        --hero-image-max-height: 68vh;
+        --hero-image-min-height: 180px;
+        --block-spacing: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="landingPage" class="landing animate__animated">
+    <div class="hero-block">
+      <h1 class="title">portfolio</h1>
+      <img class="hero-image" src="./Foto1.jpg" alt="Portfolio foto">
+    </div>
+    <div class="bottom-block">
+      <h2 class="name">ANN-SOPHIE VERSCHUERE</h2>
+      <img class="logo" src="./Foto2.png" alt="Logo">
+    </div>
+  </main>
+  <section id="overviewPage" class="overview hidden animate__animated" aria-label="Overzichtspagina">
+    <a href="#overviewPage" aria-label="Home">
+      <img src="./Foto2.png" alt="Home" class="overview-home-icon">
+    </a>
+    <nav class="overview-menu" aria-label="Hoofdmenu">
+      <a href="interior.html">interior</a>
+      <a href="graphic.html">graphic</a>
+      <a href="photo.html">photo</a>
+      <a href="about.html">about</a>
+    </nav>
+  </section>
+
+  <script>
+    const landingPage = document.getElementById("landingPage");
+    const overviewPage = document.getElementById("overviewPage");
+    const urlParams = new URLSearchParams(window.location.search);
+    const forceOverview = urlParams.get("view") === "overview";
+    let isExiting = false;
+
+    if (forceOverview) {
+      landingPage.classList.add("hidden");
+      overviewPage.classList.remove("hidden");
+      overviewPage.classList.add("animate__fadeIn");
+      window.history.replaceState({}, "", "./index.html");
+    } else {
+      landingPage.classList.add("animate__customBackInDown");
+
+      const startExit = () => {
+        if (isExiting) return;
+        isExiting = true;
+        landingPage.classList.remove("animate__customBackInDown");
+        landingPage.classList.add("animate__customBackOutDown");
+
+        const onExitDone = () => {
+          landingPage.classList.add("hidden");
+          overviewPage.classList.remove("hidden");
+          overviewPage.classList.add("animate__fadeIn");
+        };
+
+        landingPage.addEventListener("animationend", onExitDone, { once: true });
+      };
+
+      const autoExitTimer = setTimeout(startExit, 5000);
+
+      landingPage.addEventListener("click", () => {
+        clearTimeout(autoExitTimer);
+        startExit();
+      });
+    }
+  </script>
+</body>
+</html>
