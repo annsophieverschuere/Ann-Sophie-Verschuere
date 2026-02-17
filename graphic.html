@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Graphic</title>
+  <title>Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere</title>
+  <meta name="description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
+  <link rel="canonical" href="https://annsophieverschuere.be/graphic.html">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Ann-Sophie Verschuere">
+  <meta property="og:title" content="Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere">
+  <meta property="og:description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
+  <meta property="og:url" content="https://annsophieverschuere.be/graphic.html">
+  <meta property="og:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere">
+  <meta name="twitter:description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
+  <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: "Signerica";
@@ -17,10 +35,27 @@
       background: #e5e5d9;
       color: #3a5575;
       font-family: "Signerica", cursive;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
+    }
+
+    body.transition-zoom-in {
+      animation: pageZoomIn 0.58s ease both;
+      transform-origin: center;
+    }
+
+    @keyframes pageZoomIn {
+      0% {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .home-icon {
@@ -31,16 +66,78 @@
     }
 
     h1 {
-      margin: 0;
+      margin: auto 0;
       font-size: clamp(52px, 9vw, 110px);
       font-weight: 400;
+    }
+
+    .site-footer {
+      position: static;
+      width: 100%;
+      padding: clamp(10px, 1.8vh, 18px) 16px max(24px, env(safe-area-inset-bottom));
+      box-sizing: border-box;
+      text-align: center;
+      color: #3a5575;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(8px, 0.88vw, 10px);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      z-index: 20;
+      margin-top: auto;
+    }
+
+    .site-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <a href="./index.html?view=overview" aria-label="Terug naar overzicht">
-    <img src="./Foto2.png" alt="Home" class="home-icon">
+    <img
+      src="./Foto2-optimized.png"
+      data-default-src="./Foto2-optimized.png"
+      data-hover-src="./Foto3.png"
+      alt="Home"
+      class="home-icon"
+    >
   </a>
   <h1>graphic</h1>
+  <footer class="site-footer">
+    &copy; Ann-Sophie Verschuere I
+    <a href="mailto:info@annsophieverschuere.be">info@annsophieverschuere.be</a>
+  </footer>
+  <script>
+    const homeIcon = document.querySelector(".home-icon");
+    if (homeIcon) {
+      const defaultSrc = homeIcon.dataset.defaultSrc;
+      const hoverSrc = homeIcon.dataset.hoverSrc;
+      const showHover = () => { homeIcon.src = hoverSrc; };
+      const showDefault = () => { homeIcon.src = defaultSrc; };
+
+      homeIcon.addEventListener("mouseenter", showHover);
+      homeIcon.addEventListener("mouseleave", showDefault);
+      homeIcon.addEventListener("focus", showHover);
+      homeIcon.addEventListener("blur", showDefault);
+      homeIcon.addEventListener("mousedown", showHover);
+      homeIcon.addEventListener("mouseup", showDefault);
+      homeIcon.addEventListener("touchstart", showHover, { passive: true });
+      homeIcon.addEventListener("touchend", showDefault);
+      homeIcon.addEventListener("touchcancel", showDefault);
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("from") === "overview") {
+      document.body.classList.add("transition-zoom-in");
+      const cleanedUrl = `${window.location.pathname}${window.location.hash}`;
+      window.history.replaceState({}, "", cleanedUrl);
+    }
+  </script>
 </body>
 </html>

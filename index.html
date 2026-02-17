@@ -3,7 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Ann-Sophie Verschuere</title>
+  <title>Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent</title>
+  <meta name="description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
+  <link rel="canonical" href="https://annsophieverschuere.be/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Ann-Sophie Verschuere">
+  <meta property="og:title" content="Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent">
+  <meta property="og:description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
+  <meta property="og:url" content="https://annsophieverschuere.be/">
+  <meta property="og:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent">
+  <meta name="twitter:description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
+  <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ann-Sophie Verschuere",
+      "jobTitle": "Grafisch en Interieur Vormgever",
+      "url": "https://annsophieverschuere.be/",
+      "image": "https://annsophieverschuere.be/Foto1.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gent",
+        "addressCountry": "BE"
+      }
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,14 +199,16 @@
       font-size: var(--title-size);
       font-weight: lighter;
       line-height: 0.0;
+      white-space: nowrap;
       color: var(--blue);
       text-shadow: 0 4px 4px var(--shadow);
       transition:
-        font-size 0.55s ease-in-out,
-        letter-spacing 0.55s ease-in-out,
-        line-height 0.55s ease-in-out,
-        text-shadow 0.55s ease-in-out,
-        opacity 0.55s ease-in-out;
+        font-size 0.5s ease,
+        letter-spacing 0.5s ease,
+        line-height 0.5s ease,
+        text-shadow 0.5s ease,
+        opacity 0.5s ease,
+        color 0.5s ease;
     }
 
     .overview-menu a::before {
@@ -185,15 +217,37 @@
       inset: -18px -28px;
     }
 
+    .overview-menu a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -14px;
+      width: 128%;
+      height: 2px;
+      background: var(--blue);
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      opacity: 0;
+      transition: transform 0.45s ease, opacity 0.45s ease;
+    }
+
     .overview-menu a:hover,
     .overview-menu a:active,
     .overview-menu a:focus-visible {
       font-family: "Barlow Condensed", sans-serif;
-      font-size: calc(var(--name-size) * 1.728);
-      letter-spacing: calc(var(--name-spacing) * 1.728);
+      font-size: clamp(30px, 5.2vmin, 72px);
+      letter-spacing: clamp(8px, 1.35vmin, 18px);
       font-weight: 500;
       line-height: 1;
       text-shadow: none;
+      opacity: 1;
+      text-transform: uppercase;
+    }
+
+    .overview-menu a:hover::after,
+    .overview-menu a:active::after,
+    .overview-menu a:focus-visible::after {
+      transform: translateX(-50%) scaleX(1);
       opacity: 1;
     }
 
@@ -249,6 +303,30 @@
       animation-name: customBackOutDown;
     }
 
+    @keyframes customOverviewOutDown {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+        background-color: rgba(229, 229, 217, 1);
+      }
+      45% {
+        transform: translateY(28px) scale(0.96);
+        opacity: 0.95;
+        background-color: rgba(238, 238, 229, 1);
+      }
+      100% {
+        transform: translateY(96px) scale(0.94);
+        opacity: 0;
+        background-color: rgba(255, 255, 255, 1);
+      }
+    }
+
+    .animate__customOverviewOutDown {
+      animation-name: customOverviewOutDown;
+      --animate-duration: 1.7s;
+      animation-fill-mode: both;
+    }
+
     /* iPad Pro: foto 1 groter zodat de ruimte tussen beide blokken kleiner wordt */
     @media (min-width: 834px) and (max-width: 1366px) and (min-height: 1024px) and (max-height: 1366px) {
       :root {
@@ -264,21 +342,21 @@
   <main id="landingPage" class="landing animate__animated">
     <div class="hero-block">
       <h1 class="title">portfolio</h1>
-      <img class="hero-image" src="./Foto1.jpg" alt="Portfolio foto">
+      <img class="hero-image" src="./Foto1-optimized.jpg" alt="Portfolio foto">
     </div>
     <div class="bottom-block">
       <h2 class="name">ANN-SOPHIE VERSCHUERE</h2>
-      <img class="logo" src="./Foto2.png" alt="Logo">
+      <img class="logo" src="./Foto2-optimized.png" alt="Logo">
     </div>
   </main>
   <section id="overviewPage" class="overview hidden animate__animated" aria-label="Overzichtspagina">
     <a href="#overviewPage" aria-label="Home">
-      <img src="./Foto2.png" alt="Home" class="overview-home-icon">
+      <img src="./Foto2-optimized.png" alt="Home" class="overview-home-icon">
     </a>
     <nav class="overview-menu" aria-label="Hoofdmenu">
       <a href="interior.html">interior</a>
-      <a href="graphic.html">graphic</a>
       <a href="photo.html">photo</a>
+      <a href="graphic.html">graphic</a>
       <a href="about.html">about</a>
     </nav>
   </section>
@@ -286,9 +364,11 @@
   <script>
     const landingPage = document.getElementById("landingPage");
     const overviewPage = document.getElementById("overviewPage");
+    const overviewLinks = document.querySelectorAll(".overview-menu a");
     const urlParams = new URLSearchParams(window.location.search);
     const forceOverview = urlParams.get("view") === "overview";
     let isExiting = false;
+    let isOverviewNavigating = false;
 
     if (forceOverview) {
       landingPage.classList.add("hidden");
@@ -320,6 +400,39 @@
         startExit();
       });
     }
+
+    const navigateFromOverviewWithBounce = (event) => {
+      const link = event.currentTarget;
+      const targetHref = link.getAttribute("href");
+      if (!targetHref || isOverviewNavigating) return;
+
+      // Keep expected browser behavior for new-tab/middle-click interactions.
+      if (
+        event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+        event.button === 1
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      isOverviewNavigating = true;
+
+      overviewPage.classList.remove("animate__fadeIn");
+      overviewPage.classList.add("animate__customOverviewOutDown");
+
+      const onOverviewExitDone = () => {
+        const nextUrl = new URL(targetHref, window.location.href);
+        nextUrl.searchParams.set("from", "overview");
+        window.location.href = nextUrl.toString();
+      };
+
+      document.body.style.background = "#ffffff";
+      overviewPage.addEventListener("animationend", onOverviewExitDone, { once: true });
+    };
+
+    overviewLinks.forEach((link) => {
+      link.addEventListener("click", navigateFromOverviewWithBounce);
+    });
   </script>
 </body>
 </html>

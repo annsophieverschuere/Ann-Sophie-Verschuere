@@ -3,8 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo</title>
+  <title>Fotografie Portfolio | Ann-Sophie Verschuere</title>
+  <meta name="description" content="Ontdek het fotografieportfolio van Ann-Sophie Verschuere met beeldreeksen die sfeer, compositie en detail centraal zetten.">
+  <link rel="canonical" href="https://annsophieverschuere.be/photo.html">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Ann-Sophie Verschuere">
+  <meta property="og:title" content="Fotografie Portfolio | Ann-Sophie Verschuere">
+  <meta property="og:description" content="Ontdek het fotografieportfolio van Ann-Sophie Verschuere met beeldreeksen die sfeer, compositie en detail centraal zetten.">
+  <meta property="og:url" content="https://annsophieverschuere.be/photo.html">
+  <meta property="og:image" content="https://annsophieverschuere.be/Foto1-optimized.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fotografie Portfolio | Ann-Sophie Verschuere">
+  <meta name="twitter:description" content="Ontdek het fotografieportfolio van Ann-Sophie Verschuere met beeldreeksen die sfeer, compositie en detail centraal zetten.">
+  <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1-optimized.jpg">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #fff;
+      --gap: clamp(3px, 0.45vw, 6px);
+      --blue: #3a5575;
+    }
+
     @font-face {
       font-family: "Signerica";
       src: url("./Signerica_Fat.ttf") format("truetype");
@@ -13,34 +37,477 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
-      background: #e5e5d9;
-      color: #3a5575;
-      font-family: "Signerica", cursive;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      overflow: hidden;
+      background: var(--bg);
+      color: #111;
+      font-family: sans-serif;
+      overflow-x: hidden;
     }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body.transition-zoom-in {
+      animation: pageZoomIn 0.58s ease both;
+      transform-origin: center;
+    }
+
+    @keyframes pageZoomIn {
+      0% {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
 
     .home-icon {
       position: fixed;
-      top: 30px;
-      right: 30px;
+      top: 24px;
+      right: 24px;
       width: 60px;
+      z-index: 10;
+      transition: transform 0.25s ease;
+      transform-origin: center;
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(52px, 9vw, 110px);
+    .home-icon:hover {
+      transform: scale(1.15);
+    }
+
+    .photo-layout {
+      width: 100%;
+      max-width: 100%;
+      margin: 24px auto 48px;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(46px, 10.16vh, 145px);
+      padding-top: clamp(24px, 6vh, 80px);
+      padding-top: calc(clamp(24px, 6vh, 80px) + 10vh);
+      padding-inline: clamp(10px, 2vw, 24px);
+      box-sizing: border-box;
+      overflow-x: clip;
+    }
+
+    .photo-title {
+      margin: clamp(16px, 4vh, 48px) 0 clamp(20px, 4vh, 52px);
+      text-align: center;
+      color: var(--blue);
+      font-family: "Signerica", "Signerica Fat", cursive;
+      font-size: clamp(25px, 3.15vw, 66px);
       font-weight: 400;
+      line-height: 0.85;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
+      pointer-events: none;
+      max-width: 100%;
+      padding-inline: clamp(8px, 2vw, 20px);
+      box-sizing: border-box;
+    }
+
+    .block {
+      margin-inline: auto;
+      display: grid;
+      gap: var(--gap);
+      max-width: 100%;
+    }
+
+    .block img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background: transparent;
+    }
+
+    .b1 {
+      width: 100%;
+      grid-template-columns: repeat(6, 1fr);
+      height: auto;
+    }
+
+    .b1 img {
+      height: auto;
+    }
+
+    .b2 {
+      width: min(100%, 126px);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      aspect-ratio: auto;
+    }
+
+    .b2 {
+      width: min(28vw, 416px);
+      max-width: 100%;
+    }
+
+    .b3 {
+      width: min(70vw, 980px);
+      max-width: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .b4 {
+      width: min(28vw, 416px);
+      max-width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto auto;
+      height: auto;
+    }
+
+    .b4 img:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .b2 img {
+      aspect-ratio: auto;
+      height: auto;
+    }
+
+    .b3 img {
+      aspect-ratio: auto;
+      width: 100%;
+      height: clamp(168px, 25.2vw, 364px);
+      max-width: 100%;
+    }
+
+    .b4 img {
+      aspect-ratio: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .b4 img:first-child {
+      aspect-ratio: auto;
+    }
+
+    .b5 {
+      width: min(35.84vw, 515px);
+      max-width: 100%;
+      grid-template-columns: 2.2fr 1fr;
+      grid-template-rows: auto auto;
+      aspect-ratio: auto;
+    }
+
+    .b5 img {
+      aspect-ratio: auto;
+      height: auto;
+    }
+
+    .b5 img:not(:first-child) {
+      width: 100%;
+      height: clamp(180px, 24vw, 360px);
+      object-fit: contain;
+    }
+
+    .b5 img:first-child {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .b6 {
+      width: 100%;
+      grid-template-columns: repeat(4, 1fr);
+      height: auto;
+      align-items: start;
+    }
+
+    .b6 img {
+      width: 42.5%;
+      justify-self: center;
+    }
+
+    .b7 {
+      width: min(100%, 210px);
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .b11 {
+      width: 100%;
+      grid-template-columns: repeat(8, 1fr);
+      height: auto;
+    }
+
+    .b11 img {
+      width: 78%;
+      height: auto;
+      justify-self: center;
+    }
+
+    .b9 {
+      width: min(19.68vw, 264px);
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0px, 0.12vw, 2px);
+    }
+
+    .b9 img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background: transparent;
+    }
+
+    .b9-main {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .b9-bottom {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    .b9-bottom .b9-29,
+    .b9-bottom .b9-30 {
+      width: 50%;
+      height: clamp(190px, 28vw, 360px);
+      object-fit: contain;
+      object-position: top center;
+      align-self: flex-start;
+      margin-top: 10px;
+    }
+
+    .b8 {
+      width: min(70vw, 980px);
+      max-width: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .b8 img {
+      aspect-ratio: auto;
+      width: auto;
+      max-width: 100%;
+      height: clamp(168px, 25.2vw, 364px);
+      object-fit: contain;
+    }
+
+    .b8 img:first-child {
+      justify-self: end;
+    }
+
+    .b8 img:last-child {
+      justify-self: start;
+    }
+
+    .b10 {
+      width: min(100%, 289px);
+      grid-template-columns: repeat(2, 1fr);
+      height: auto;
+    }
+    @media (max-width: 420px) {
+      .photo-layout {
+        width: 100%;
+        gap: clamp(23px, 5.8vh, 70px);
+      }
+
+      .b1 {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        height: auto;
+      }
+
+      .b9 {
+        width: 80vw;
+      }
+
+      .b9-bottom .b9-29,
+      .b9-bottom .b9-30 {
+        height: auto;
+      }
+
+      .b2,
+      .b3,
+      .b4 {
+        width: 80vw;
+      }
+
+      .b11 {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        height: auto;
+      }
+    }
+
+    @media (min-width: 800px) {
+      .photo-layout {
+        gap: clamp(58px, 12.5vh, 180px);
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .photo-layout {
+        width: 70vw;
+      }
+    }
+
+    .site-footer {
+      position: static;
+      width: 100%;
+      padding: clamp(10px, 1.8vh, 18px) 16px max(24px, env(safe-area-inset-bottom));
+      box-sizing: border-box;
+      text-align: center;
+      color: var(--blue);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(8px, 0.88vw, 10px);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      z-index: 20;
+      pointer-events: auto;
+      margin-top: auto;
+    }
+
+    .site-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <a href="./index.html?view=overview" aria-label="Terug naar overzicht">
-    <img src="./Foto2.png" alt="Home" class="home-icon">
+    <img
+      src="./Foto2-optimized.png"
+      data-default-src="./Foto2-optimized.png"
+      data-hover-src="./Foto3.png"
+      alt="Home"
+      class="home-icon"
+    >
   </a>
-  <h1>photo</h1>
+
+  <main class="photo-layout" aria-label="Fotografie layout">
+    <h1 class="photo-title">photogrpahy</h1>
+
+    <section class="block b1">
+      <img src="./Ann-SophieVerschuere-1.jpg" alt="Foto 1">
+      <img src="./Ann-SophieVerschuere-2.jpg" alt="Foto 2">
+      <img src="./Ann-SophieVerschuere-3.jpg" alt="Foto 3">
+      <img src="./Ann-SophieVerschuere-4.jpg" alt="Foto 4">
+      <img src="./Ann-SophieVerschuere-5.jpg" alt="Foto 5">
+      <img src="./Ann-SophieVerschuere-6.jpg" alt="Foto 6">
+    </section>
+
+    <section class="block b2">
+      <img src="./Ann-SophieVerschuere-7.jpg" alt="Foto 7">
+      <img src="./Ann-SophieVerschuere-8.jpg" alt="Foto 8">
+      <img src="./Ann-SophieVerschuere-9.jpg" alt="Foto 9">
+      <img src="./Ann-SophieVerschuere-10.jpg" alt="Foto 10">
+    </section>
+
+    <section class="block b3">
+      <img src="./Ann-SophieVerschuere-11.jpg" alt="Foto 11">
+      <img src="./Ann-SophieVerschuere-12.jpg" alt="Foto 12">
+    </section>
+
+    <section class="block b4">
+      <img src="./Ann-SophieVerschuere-13.jpg" alt="Foto 13">
+      <img src="./Ann-SophieVerschuere-14.jpg" alt="Foto 14">
+      <img src="./Ann-SophieVerschuere-15.jpg" alt="Foto 15">
+      <img src="./Ann-SophieVerschuere-16.jpg" alt="Foto 16">
+      <img src="./Ann-SophieVerschuere-17.jpg" alt="Foto 17">
+    </section>
+
+    <section class="block b5">
+      <img src="./Ann-SophieVerschuere-20.jpg" alt="Foto 20">
+      <img src="./Ann-SophieVerschuere-18.jpg" alt="Foto 18">
+      <img src="./Ann-SophieVerschuere-19.jpg" alt="Foto 19">
+    </section>
+
+    <section class="block b6">
+      <img src="./Ann-SophieVerschuere-21.jpg" alt="Foto 21">
+      <img src="./Ann-SophieVerschuere-22.jpg" alt="Foto 22">
+      <img src="./Ann-SophieVerschuere-23.jpg" alt="Foto 23">
+      <img src="./Ann-SophieVerschuere-24.jpg" alt="Foto 24">
+    </section>
+
+    <section class="block b7">
+      <img src="./Ann-SophieVerschuere-25.jpg" alt="Foto 25">
+    </section>
+
+    <section class="block b8">
+      <img src="./Ann-SophieVerschuere-31.jpg" alt="Foto 31">
+      <img src="./Ann-SophieVerschuere-32.jpg" alt="Foto 32">
+    </section>
+
+    <section class="block b9">
+      <img class="b9-main" src="./foto26-27-28.jpg" alt="Foto 26-27-28">
+      <div class="b9-bottom">
+        <img class="b9-29" src="./Ann-SophieVerschuere-29.jpg" alt="Foto 29">
+        <img class="b9-30" src="./Ann-SophieVerschuere-30.jpg" alt="Foto 30">
+      </div>
+    </section>
+
+    <section class="block b10">
+      <img src="./Ann-SophieVerschuere-33.jpg" alt="Foto 33">
+      <img src="./Ann-SophieVerschuere-34.jpg" alt="Foto 34">
+    </section>
+
+    <section class="block b11">
+      <img src="./Ann-SophieVerschuere-35.jpg" alt="Foto 35">
+      <img src="./Ann-SophieVerschuere-36.jpg" alt="Foto 36">
+      <img src="./Ann-SophieVerschuere-37.jpg" alt="Foto 37">
+      <img src="./Ann-SophieVerschuere-38.jpg" alt="Foto 38">
+      <img src="./Ann-SophieVerschuere-39.jpg" alt="Foto 39">
+      <img src="./Ann-SophieVerschuere-40.jpg" alt="Foto 40">
+      <img src="./Ann-SophieVerschuere-41.jpg" alt="Foto 41">
+      <img src="./Ann-SophieVerschuere-42.jpg" alt="Foto 42">
+    </section>
+  </main>
+  <footer class="site-footer">
+    &copy; Ann-Sophie Verschuere I
+    <a href="mailto:info@annsophieverschuere.be">info@annsophieverschuere.be</a>
+  </footer>
+
+  <script>
+    const homeIcon = document.querySelector(".home-icon");
+    if (homeIcon) {
+      const defaultSrc = homeIcon.dataset.defaultSrc;
+      const hoverSrc = homeIcon.dataset.hoverSrc;
+      const showHover = () => { homeIcon.src = hoverSrc; };
+      const showDefault = () => { homeIcon.src = defaultSrc; };
+
+      homeIcon.addEventListener("mouseenter", showHover);
+      homeIcon.addEventListener("mouseleave", showDefault);
+      homeIcon.addEventListener("focus", showHover);
+      homeIcon.addEventListener("blur", showDefault);
+      homeIcon.addEventListener("mousedown", showHover);
+      homeIcon.addEventListener("mouseup", showDefault);
+      homeIcon.addEventListener("touchstart", showHover, { passive: true });
+      homeIcon.addEventListener("touchend", showDefault);
+      homeIcon.addEventListener("touchcancel", showDefault);
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("from") === "overview") {
+      document.body.classList.add("transition-zoom-in");
+      const cleanedUrl = `${window.location.pathname}${window.location.hash}`;
+      window.history.replaceState({}, "", cleanedUrl);
+    }
+  </script>
 </body>
 </html>
