@@ -7,6 +7,7 @@
   <meta name="description" content="Ontdek het fotografieportfolio van Ann-Sophie Verschuere met beeldreeksen die sfeer, compositie en detail centraal zetten.">
   <meta name="author" content="Ann-Sophie Verschuere">
   <meta name="copyright" content="© Ann-Sophie Verschuere">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://annsophieverschuere.be/photo.html">
   <meta name="robots" content="index,follow">
   <meta name="geo.region" content="BE-VOV">
@@ -66,6 +67,8 @@
       --section-gap: clamp(46px, 10.16vh, 145px);
       --b9b11-width: min(70vw, 980px);
       --b9b11-width-mobile: 80vw;
+      --b8-width-desktop: 252px;
+      --b8-width-mobile: 168px;
     }
 
     @font-face {
@@ -292,10 +295,11 @@
     }
 
     .b11 {
-      width: var(--b9b11-width);
-      max-width: 100%;
+      width: 50%;
+      max-width: 50%;
+      margin-inline: auto;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(28px, 4.2vw, 60px);
+      gap: var(--gap);
       height: auto;
     }
 
@@ -372,7 +376,7 @@
     }
 
     .b8 {
-      width: min(100%, 252px);
+      width: min(100%, var(--b8-width-desktop));
       grid-template-columns: repeat(2, 1fr);
       height: auto;
     }
@@ -440,7 +444,7 @@
       }
 
       .b8 {
-        width: min(100%, 168px);
+        width: min(100%, var(--b8-width-mobile));
       }
 
       .b12 {
@@ -454,7 +458,7 @@
       .b11 {
         width: var(--b9b11-width-mobile);
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(18px, 5.5vw, 34px);
+        gap: var(--gap);
       }
     }
 
@@ -465,6 +469,11 @@
     }
 
     @media (min-width: 431px) {
+      .b11 {
+        width: 50% !important;
+        max-width: 50% !important;
+      }
+
       .b10 + .b11 {
         margin-top: calc(-1 * var(--section-gap));
       }

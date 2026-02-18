@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere</title>
   <meta name="description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
+  <meta name="author" content="Ann-Sophie Verschuere">
+  <meta name="copyright" content="© Ann-Sophie Verschuere">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://annsophieverschuere.be/graphic.html">
   <meta name="robots" content="index,follow">
+  <meta name="geo.region" content="BE-VOV">
+  <meta name="geo.placename" content="Gent">
+  <meta name="geo.position" content="51.054342;3.717424">
+  <meta name="ICBM" content="51.054342, 3.717424">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_BE">
   <meta property="og:site_name" content="Ann-Sophie Verschuere">
@@ -14,14 +21,35 @@
   <meta property="og:description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
   <meta property="og:url" content="https://annsophieverschuere.be/graphic.html">
   <meta property="og:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta property="og:image:alt" content="Grafisch ontwerp portfolio van Ann-Sophie Verschuere">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere">
   <meta name="twitter:description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
   <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta name="twitter:image:alt" content="Grafisch ontwerp portfolio van Ann-Sophie Verschuere">
   <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="preload" as="image" href="./Ann-SophieVerschuere-foto01.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere",
+      "url": "https://annsophieverschuere.be/graphic.html",
+      "inLanguage": "nl-BE",
+      "about": {
+        "@type": "Person",
+        "name": "Ann-Sophie Verschuere",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Gent",
+          "addressCountry": "BE"
+        }
+      }
+    }
+  </script>
   <style>
     @font-face {
       font-family: "Signerica";
@@ -29,16 +57,22 @@
       font-display: swap;
     }
 
+    :root {
+      --bg: #fff;
+      --blue: #3a5575;
+      --card-bg: #d7d7cd;
+      --section-gap: clamp(46px, 10.16vh, 145px);
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      background: #e5e5d9;
-      color: #3a5575;
-      font-family: "Signerica", cursive;
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--blue);
+      font-family: sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
       overflow-x: hidden;
     }
 
@@ -60,15 +94,122 @@
 
     .home-icon {
       position: fixed;
-      top: 30px;
-      right: 30px;
+      top: 24px;
+      right: 24px;
       width: 60px;
+      z-index: 20;
+      transition: transform 0.25s ease;
+      transform-origin: center;
     }
 
-    h1 {
-      margin: auto 0;
-      font-size: clamp(52px, 9vw, 110px);
+    .home-icon:hover {
+      transform: scale(1.15);
+    }
+
+    .graphic-layout {
+      width: 100%;
+      max-width: 100%;
+      margin: 24px auto 48px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--section-gap);
+      padding-top: clamp(24px, 6vh, 80px);
+      padding-top: calc(clamp(24px, 6vh, 80px) + 10vh);
+      padding-inline: clamp(10px, 2vw, 24px);
+      box-sizing: border-box;
+      overflow-x: clip;
+    }
+
+    .graphic-title {
+      margin: clamp(16px, 4vh, 48px) 0 clamp(20px, 4vh, 52px);
+      text-align: center;
+      color: var(--blue);
+      font-family: "Signerica", "Signerica Fat", cursive;
+      font-size: clamp(25px, 3.15vw, 66px);
       font-weight: 400;
+      line-height: 0.85;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
+      pointer-events: none;
+    }
+
+    .graphic-grid {
+      width: 70%;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(12px, 2.4vw, 22px);
+    }
+
+    .graphic-card {
+      position: relative;
+      background: #e5e5d9;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 2px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
+      cursor: default;
+      transition: box-shadow 0.35s ease;
+    }
+
+    .graphic-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .graphic-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(245, 245, 242, 0.86);
+      opacity: 0;
+      transform: scale(0.98);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .graphic-card::after {
+      content: attr(data-description);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -42%);
+      width: 86%;
+      text-align: center;
+      color: var(--blue);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(12px, 1.35vw, 20px);
+      font-weight: 300;
+      letter-spacing: clamp(2px, 0.45vw, 6px);
+      line-height: 1.35;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+      white-space: pre-line;
+      z-index: 2;
+    }
+
+    .graphic-card:hover::before,
+    .graphic-card:focus-visible::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .graphic-card:hover::after,
+    .graphic-card:focus-visible::after {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    .graphic-card:hover,
+    .graphic-card:focus-visible {
+      box-shadow: none;
     }
 
     .site-footer {
@@ -96,11 +237,20 @@
     .site-footer a:focus-visible {
       text-decoration: underline;
     }
+
+    @media (max-width: 430px) {
+      .graphic-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: clamp(10px, 3.2vw, 16px);
+      }
+    }
+
   </style>
 </head>
 <body>
   <a href="./index.html?view=overview" aria-label="Terug naar overzicht">
-    <img
+    <img loading="eager" fetchpriority="high" decoding="async"
       src="./Foto2-optimized.png"
       data-default-src="./Foto2-optimized.png"
       data-hover-src="./Foto3.png"
@@ -108,7 +258,23 @@
       class="home-icon"
     >
   </a>
-  <h1>graphic</h1>
+  <main class="graphic-layout" aria-label="Graphic design portfolio">
+    <h1 class="graphic-title">graphic design</h1>
+    <section class="graphic-grid">
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;visitekaartje"><img loading="eager" fetchpriority="high" decoding="async" src="./Ann-SophieVerschuere-foto01.png" alt="Graphic project 1"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;logo"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto02.png" alt="Graphic project 2"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;verpakking"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto03.png" alt="Graphic project 3"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;welkomskaartje"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto04.png" alt="Graphic project 4"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;cover"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto05.png" alt="Graphic project 5"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;platenhoes"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto06.png" alt="Graphic project 6"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="photoshopcollage"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto07.png" alt="Graphic project 7"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;poster"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto08.png" alt="Graphic project 8"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;visitekaartje"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto09.png" alt="Graphic project 9"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;branding"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto10.png" alt="Graphic project 10"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="photoshopcollage"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto11.png" alt="Graphic project 11"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;logo"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto12.png" alt="Graphic project 12"></figure>
+    </section>
+  </main>
   <footer class="site-footer">
     &copy; Ann-Sophie Verschuere I
     <a href="mailto:info@annsophieverschuere.be">info@annsophieverschuere.be</a>

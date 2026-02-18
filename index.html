@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent</title>
   <meta name="description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
+  <meta name="author" content="Ann-Sophie Verschuere">
+  <meta name="copyright" content="© Ann-Sophie Verschuere">
+  <meta name="theme-color" content="#e5e5d9">
   <link rel="canonical" href="https://annsophieverschuere.be/">
   <meta name="robots" content="index,follow">
+  <meta name="geo.region" content="BE-VOV">
+  <meta name="geo.placename" content="Gent">
+  <meta name="geo.position" content="51.054342;3.717424">
+  <meta name="ICBM" content="51.054342, 3.717424">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_BE">
   <meta property="og:site_name" content="Ann-Sophie Verschuere">
@@ -14,11 +21,14 @@
   <meta property="og:description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
   <meta property="og:url" content="https://annsophieverschuere.be/">
   <meta property="og:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta property="og:image:alt" content="Portfolio landingpagina van Ann-Sophie Verschuere">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent">
   <meta name="twitter:description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
   <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta name="twitter:image:alt" content="Portfolio landingpagina van Ann-Sophie Verschuere">
   <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="preload" as="image" href="./Foto1-optimized.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,6 +42,15 @@
         "addressLocality": "Gent",
         "addressCountry": "BE"
       }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ann-Sophie Verschuere",
+      "url": "https://annsophieverschuere.be/",
+      "inLanguage": "nl-BE"
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -342,16 +361,16 @@
   <main id="landingPage" class="landing animate__animated">
     <div class="hero-block">
       <h1 class="title">portfolio</h1>
-      <img class="hero-image" src="./Foto1-optimized.jpg" alt="Portfolio foto">
+      <img class="hero-image" loading="eager" fetchpriority="high" decoding="async" src="./Foto1-optimized.jpg" alt="Portfolio foto">
     </div>
     <div class="bottom-block">
       <h2 class="name">ANN-SOPHIE VERSCHUERE</h2>
-      <img class="logo" src="./Foto2-optimized.png" alt="Logo">
+      <img class="logo" loading="eager" decoding="async" src="./Foto2-optimized.png" alt="Logo">
     </div>
   </main>
   <section id="overviewPage" class="overview hidden animate__animated" aria-label="Overzichtspagina">
     <a href="#overviewPage" aria-label="Home">
-      <img src="./Foto2-optimized.png" alt="Home" class="overview-home-icon">
+      <img loading="lazy" decoding="async" src="./Foto2-optimized.png" alt="Home" class="overview-home-icon">
     </a>
     <nav class="overview-menu" aria-label="Hoofdmenu">
       <a href="interior.html">interior</a>
