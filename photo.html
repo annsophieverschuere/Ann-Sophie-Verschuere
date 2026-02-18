@@ -27,6 +27,7 @@
       --bg: #fff;
       --gap: clamp(3px, 0.45vw, 6px);
       --blue: #3a5575;
+      --section-gap: clamp(46px, 10.16vh, 145px);
     }
 
     @font-face {
@@ -87,12 +88,16 @@
       margin: 24px auto 48px;
       display: flex;
       flex-direction: column;
-      gap: clamp(46px, 10.16vh, 145px);
+      gap: var(--section-gap);
       padding-top: clamp(24px, 6vh, 80px);
       padding-top: calc(clamp(24px, 6vh, 80px) + 10vh);
       padding-inline: clamp(10px, 2vw, 24px);
       box-sizing: border-box;
       overflow-x: clip;
+    }
+
+    .b10 + .b8 {
+      margin-top: calc(-1 * var(--section-gap));
     }
 
     .photo-title {
@@ -229,7 +234,7 @@
     }
 
     .b7 {
-      width: min(100%, 210px);
+      width: min(100%, 252px);
       grid-template-columns: 1fr;
       height: auto;
     }
@@ -246,15 +251,15 @@
       justify-self: center;
     }
 
-    .b9 {
-      width: min(19.68vw, 264px);
+    .b10 {
+      width: min(100%, 252px);
       max-width: 100%;
       display: flex;
       flex-direction: column;
       gap: clamp(0px, 0.12vw, 2px);
     }
 
-    .b9 img {
+    .b10 img {
       width: 100%;
       height: auto;
       object-fit: contain;
@@ -262,21 +267,21 @@
       background: transparent;
     }
 
-    .b9-main {
+    .b10-main {
       width: 100%;
       height: auto;
       object-fit: contain;
     }
 
-    .b9-bottom {
+    .b10-bottom {
       display: flex;
       gap: 0;
       width: 100%;
       align-items: flex-start;
     }
 
-    .b9-bottom .b9-29,
-    .b9-bottom .b9-30 {
+    .b10-bottom .b10-29,
+    .b10-bottom .b10-30 {
       width: 50%;
       height: clamp(190px, 28vw, 360px);
       object-fit: contain;
@@ -285,7 +290,7 @@
       margin-top: 10px;
     }
 
-    .b8 {
+    .b9 {
       width: min(70vw, 980px);
       max-width: 100%;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -294,7 +299,7 @@
       justify-content: center;
     }
 
-    .b8 img {
+    .b9 img {
       aspect-ratio: auto;
       width: auto;
       max-width: 100%;
@@ -302,56 +307,101 @@
       object-fit: contain;
     }
 
-    .b8 img:first-child {
+    .b9 img:first-child {
       justify-self: end;
+      object-fit: fill;
     }
 
-    .b8 img:last-child {
+    .b9 img:last-child {
       justify-self: start;
     }
 
-    .b10 {
-      width: min(100%, 289px);
+    .b8 {
+      width: min(100%, 252px);
       grid-template-columns: repeat(2, 1fr);
       height: auto;
     }
-    @media (max-width: 420px) {
+    @media (max-width: 430px) {
       .photo-layout {
         width: 100%;
-        gap: clamp(23px, 5.8vh, 70px);
+        --section-gap: clamp(23px, 5.8vh, 70px);
+      }
+
+      .b10 + .b8 {
+        margin-top: 0;
       }
 
       .b1 {
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 1fr;
+        grid-template-columns: repeat(6, 1fr);
         height: auto;
+      }
+
+      .b10 {
+        width: min(100%, 231px);
+      }
+
+      .b10-bottom .b10-29,
+      .b10-bottom .b10-30 {
+        height: auto;
+      }
+
+      .b2,
+      .b4,
+      .b5 {
+        width: 64vw;
+      }
+
+      .b3 {
+        width: 80vw;
       }
 
       .b9 {
         width: 80vw;
       }
 
-      .b9-bottom .b9-29,
-      .b9-bottom .b9-30 {
-        height: auto;
+      .b3 img:first-child {
+        object-fit: cover;
+        object-position: center;
       }
 
-      .b2,
-      .b3,
-      .b4 {
-        width: 80vw;
+      .b6 {
+        gap: calc(var(--gap) * 0.6);
+      }
+
+      .b6 img {
+        width: 59.5%;
+      }
+
+      .b7 {
+        width: min(100%, 168px);
+      }
+
+      .b9 img:first-child {
+        height: clamp(168px, 25.2vw, 364px);
+      }
+
+      .b8 {
+        width: min(100%, 168px);
       }
 
       .b11 {
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 1fr;
+        column-gap: var(--gap);
+        row-gap: clamp(16px, 3.8vw, 24px);
         height: auto;
       }
     }
 
     @media (min-width: 800px) {
       .photo-layout {
-        gap: clamp(58px, 12.5vh, 180px);
+        --section-gap: clamp(58px, 12.5vh, 180px);
+      }
+    }
+
+    @media (min-width: 431px) {
+      .b10 + .b11 {
+        margin-top: calc(-1 * var(--section-gap));
       }
     }
 
@@ -450,21 +500,21 @@
     </section>
 
     <section class="block b8">
+      <img src="./Ann-SophieVerschuere-33.jpg" alt="Foto 33">
+      <img src="./Ann-SophieVerschuere-34.jpg" alt="Foto 34">
+    </section>
+
+    <section class="block b9">
       <img src="./Ann-SophieVerschuere-31.jpg" alt="Foto 31">
       <img src="./Ann-SophieVerschuere-32.jpg" alt="Foto 32">
     </section>
 
-    <section class="block b9">
-      <img class="b9-main" src="./foto26-27-28.jpg" alt="Foto 26-27-28">
-      <div class="b9-bottom">
-        <img class="b9-29" src="./Ann-SophieVerschuere-29.jpg" alt="Foto 29">
-        <img class="b9-30" src="./Ann-SophieVerschuere-30.jpg" alt="Foto 30">
-      </div>
-    </section>
-
     <section class="block b10">
-      <img src="./Ann-SophieVerschuere-33.jpg" alt="Foto 33">
-      <img src="./Ann-SophieVerschuere-34.jpg" alt="Foto 34">
+      <img class="b10-main" src="./foto26-27-28.jpg" alt="Foto 26-27-28">
+      <div class="b10-bottom">
+        <img class="b10-29" src="./Ann-SophieVerschuere-29.jpg" alt="Foto 29">
+        <img class="b10-30" src="./Ann-SophieVerschuere-30.jpg" alt="Foto 30">
+      </div>
     </section>
 
     <section class="block b11">
