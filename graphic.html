@@ -60,7 +60,6 @@
     :root {
       --bg: #fff;
       --blue: #3a5575;
-      --card-bg: #d7d7cd;
       --section-gap: clamp(46px, 10.16vh, 145px);
     }
 
@@ -113,7 +112,6 @@
       display: flex;
       flex-direction: column;
       gap: var(--section-gap);
-      padding-top: clamp(24px, 6vh, 80px);
       padding-top: calc(clamp(24px, 6vh, 80px) + 10vh);
       padding-inline: clamp(10px, 2vw, 24px);
       box-sizing: border-box;
@@ -130,6 +128,17 @@
       line-height: 0.85;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
       pointer-events: none;
+    }
+
+    .graphic-subtitle {
+      margin: calc(-1 * clamp(8.5px, 1.7vh, 20.4px)) 0 clamp(17px, 3.4vh, 44.2px);
+      text-align: center;
+      color: var(--blue);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(10px, 1.2vw, 16px);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
     }
 
     .graphic-grid {
@@ -250,7 +259,7 @@
 </head>
 <body>
   <a href="./index.html?view=overview" aria-label="Terug naar overzicht">
-    <img loading="eager" fetchpriority="high" decoding="async"
+    <img loading="lazy" fetchpriority="high" decoding="async"
       src="./Foto2-optimized.png"
       data-default-src="./Foto2-optimized.png"
       data-hover-src="./Foto3.png"
@@ -260,19 +269,16 @@
   </a>
   <main class="graphic-layout" aria-label="Graphic design portfolio">
     <h1 class="graphic-title">graphic design</h1>
+    <p class="graphic-subtitle">"Mijn blik op concept, typografie en identiteit."</p>
     <section class="graphic-grid">
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;visitekaartje"><img loading="eager" fetchpriority="high" decoding="async" src="./Ann-SophieVerschuere-foto01.png" alt="Graphic project 1"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;logo"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto02.png" alt="Graphic project 2"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;verpakking"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto03.png" alt="Graphic project 3"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;welkomskaartje"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto04.png" alt="Graphic project 4"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;visitekaartje"><img loading="lazy" fetchpriority="high" decoding="async" src="./Ann-SophieVerschuere-foto01.png" alt="Graphic project 1"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;verpakking"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto03.png" alt="Graphic project 2"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;branding"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto10.png" alt="Graphic project 3"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;sticker"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto02.png" alt="Graphic project 4"></figure>
       <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;cover"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto05.png" alt="Graphic project 5"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;platenhoes"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto06.png" alt="Graphic project 6"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="photoshopcollage"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto07.png" alt="Graphic project 7"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;poster"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto08.png" alt="Graphic project 8"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;visitekaartje"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto09.png" alt="Graphic project 9"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;branding"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto10.png" alt="Graphic project 10"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="photoshopcollage"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto11.png" alt="Graphic project 11"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;logo"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto12.png" alt="Graphic project 12"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;welkomskaartje"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto04.png" alt="Graphic project 6"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;platenhoes"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto06.png" alt="Graphic project 7"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="photoshop&#10;collage 1"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto07.png" alt="Graphic project 8"></figure>
     </section>
   </main>
   <footer class="site-footer">

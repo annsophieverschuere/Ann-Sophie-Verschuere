@@ -65,10 +65,6 @@
       --gap: clamp(3px, 0.45vw, 6px);
       --blue: #3a5575;
       --section-gap: clamp(46px, 10.16vh, 145px);
-      --b9b11-width: min(70vw, 980px);
-      --b9b11-width-mobile: 80vw;
-      --b8-width-desktop: 252px;
-      --b8-width-mobile: 168px;
     }
 
     @font-face {
@@ -137,10 +133,6 @@
       overflow-x: clip;
     }
 
-    .b10 + .b8 {
-      margin-top: calc(-1 * var(--section-gap));
-    }
-
     .photo-title {
       margin: clamp(16px, 4vh, 48px) 0 clamp(20px, 4vh, 52px);
       text-align: center;
@@ -154,6 +146,17 @@
       max-width: 100%;
       padding-inline: clamp(8px, 2vw, 20px);
       box-sizing: border-box;
+    }
+
+    .photo-subtitle {
+      margin: calc(-1 * clamp(8.5px, 1.7vh, 20.4px)) 0 clamp(17px, 3.4vh, 44.2px);
+      text-align: center;
+      color: var(--blue);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(10px, 1.2vw, 16px);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
     }
 
     .block {
@@ -183,16 +186,94 @@
       height: auto;
     }
 
-    .b2 {
-      width: min(100%, 126px);
+    .b4 {
+      width: min(56vw, 784px);
+      max-width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(14px, 2.2vw, 34px);
+    }
+
+    .b7 {
+      width: min(70vw, 980px);
+      max-width: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .b5 {
+      width: min(28vw, 416px);
+      max-width: 100%;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-rows: auto auto auto;
+      height: auto;
+    }
+
+    .b7 img {
       aspect-ratio: auto;
+      width: 100%;
+      height: clamp(168px, 25.2vw, 364px);
+      max-width: 100%;
+    }
+
+    .b5 img {
+      aspect-ratio: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .b5 img:first-child {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .b9 {
+      width: min(35.84vw, 515px);
+      max-width: 100%;
+      grid-template-columns: 1fr;
+    }
+
+    .b10 {
+      width: min(28vw, 416px);
+      max-width: 100%;
+      grid-template-columns: 1fr;
+      height: auto;
     }
 
     .b2 {
+      width: min(100%, 252px);
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .b8 {
       width: min(28vw, 416px);
       max-width: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .b8 img {
+      aspect-ratio: auto;
+      width: auto;
+      max-width: 100%;
+      height: clamp(168px, 25.2vw, 364px);
+      object-fit: contain;
+      display: block;
+      background: transparent;
+    }
+
+    .b8 img:first-child {
+      justify-self: end;
+    }
+
+    .b8 img:last-child {
+      justify-self: start;
     }
 
     .b3 {
@@ -204,181 +285,35 @@
       justify-content: center;
     }
 
-    .b4 {
-      width: min(28vw, 416px);
-      max-width: 100%;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto auto auto;
-      height: auto;
-    }
-
-    .b4 img:first-child {
-      grid-column: 1 / -1;
-    }
-
-    .b2 img {
-      aspect-ratio: auto;
-      height: auto;
-    }
-
     .b3 img {
-      aspect-ratio: auto;
-      width: 100%;
-      height: clamp(168px, 25.2vw, 364px);
-      max-width: 100%;
-    }
-
-    .b4 img {
-      aspect-ratio: auto;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .b4 img:first-child {
-      aspect-ratio: auto;
-    }
-
-    .b5 {
-      width: min(35.84vw, 515px);
-      max-width: 100%;
-      grid-template-columns: 2.2fr 1fr;
-      grid-template-rows: auto auto;
-      aspect-ratio: auto;
-    }
-
-    .b5 img {
-      aspect-ratio: auto;
-      height: auto;
-    }
-
-    .b5 img:not(:first-child) {
-      width: 100%;
-      height: clamp(180px, 24vw, 360px);
-      object-fit: contain;
-    }
-
-    .b5 img:first-child {
-      grid-column: 1 / -1;
-      grid-row: 1;
-      width: 100%;
-      object-fit: contain;
-    }
-
-    .b6 {
-      width: 100%;
-      grid-template-columns: repeat(4, 1fr);
-      height: auto;
-      align-items: start;
-    }
-
-    .b6 img {
-      width: 42.5%;
-      justify-self: center;
-    }
-
-    .b7 {
-      width: min(100%, 252px);
-      grid-template-columns: 1fr;
-      height: auto;
-    }
-
-    .b12 {
-      width: 100%;
-      grid-template-columns: repeat(8, 1fr);
-      height: auto;
-    }
-
-    .b12 img {
-      width: 78%;
-      height: auto;
-      justify-self: center;
-    }
-
-    .b11 {
-      width: 50%;
-      max-width: 50%;
-      margin-inline: auto;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--gap);
-      height: auto;
-    }
-
-    .b11 img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .b10 {
-      width: min(100%, 252px);
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: clamp(0px, 0.12vw, 2px);
-    }
-
-    .b10 img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      background: transparent;
-    }
-
-    .b10-main {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .b10-bottom {
-      display: flex;
-      gap: 0;
-      width: 100%;
-      align-items: flex-start;
-    }
-
-    .b10-bottom .b10-29,
-    .b10-bottom .b10-30 {
-      width: 50%;
-      height: clamp(190px, 28vw, 360px);
-      object-fit: contain;
-      object-position: top center;
-      align-self: flex-start;
-      margin-top: 10px;
-    }
-
-    .b9 {
-      width: var(--b9b11-width);
-      max-width: 100%;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      height: auto;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .b9 img {
       aspect-ratio: auto;
       width: auto;
       max-width: 100%;
-      height: clamp(168px, 25.2vw, 364px);
+      height: clamp(185px, 27.72vw, 400px);
       object-fit: contain;
     }
 
-    .b9 img:first-child {
+    .b3 img:first-child {
       justify-self: end;
       object-fit: fill;
     }
 
-    .b9 img:last-child {
+    .b3 img:last-child {
       justify-self: start;
     }
 
-    .b8 {
-      width: min(100%, var(--b8-width-desktop));
+    .b6 {
+      width: min(35.84vw, 515px);
       grid-template-columns: repeat(2, 1fr);
       height: auto;
+    }
+
+    .b6 img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
     }
     @media (max-width: 430px) {
       .photo-layout {
@@ -386,43 +321,33 @@
         --section-gap: clamp(23px, 5.8vh, 70px);
       }
 
-      .b10 + .b8 {
-        margin-top: 0;
-      }
-
-      .b10 + .b11 {
-        margin-top: 0;
-      }
-
       .b1 {
         grid-template-columns: repeat(6, 1fr);
         height: auto;
       }
 
-      .b10 {
-        width: min(100%, 231px);
+      .b8 {
+        width: min(56vw, 784px);
       }
 
-      .b10-bottom .b10-29,
-      .b10-bottom .b10-30 {
-        height: auto;
-      }
-
-      .b2,
-      .b4,
-      .b5 {
+      .b5,
+      .b9 {
         width: 64vw;
+      }
+
+      .b10 {
+        width: min(56vw, 784px);
+      }
+
+      .b7 {
+        width: 80vw;
       }
 
       .b3 {
         width: 80vw;
       }
 
-      .b9 {
-        width: var(--b9b11-width-mobile);
-      }
-
-      .b3 img:first-child {
+      .b7 img:first-child {
         object-fit: cover;
         object-position: center;
       }
@@ -432,50 +357,19 @@
       }
 
       .b6 img {
-        width: 59.5%;
+        width: 100%;
       }
 
-      .b7 {
+      .b2 {
         width: min(100%, 168px);
       }
 
-      .b9 img:first-child {
-        height: clamp(168px, 25.2vw, 364px);
+      .b3 img:first-child {
+        object-fit: cover;
       }
 
-      .b8 {
-        width: min(100%, var(--b8-width-mobile));
-      }
-
-      .b12 {
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 1fr;
-        column-gap: var(--gap);
-        row-gap: clamp(16px, 3.8vw, 24px);
-        height: auto;
-      }
-
-      .b11 {
-        width: var(--b9b11-width-mobile);
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--gap);
-      }
-    }
-
-    @media (min-width: 800px) {
-      .photo-layout {
-        --section-gap: clamp(58px, 12.5vh, 180px);
-      }
-    }
-
-    @media (min-width: 431px) {
-      .b11 {
-        width: 50% !important;
-        max-width: 50% !important;
-      }
-
-      .b10 + .b11 {
-        margin-top: calc(-1 * var(--section-gap));
+      .b6 {
+        width: min(56vw, 784px);
       }
     }
 
@@ -515,7 +409,7 @@
 </head>
 <body>
   <a href="./index.html?view=overview" aria-label="Terug naar overzicht">
-    <img loading="eager"
+    <img loading="lazy"
       fetchpriority="high"
       decoding="async"
       src="./Foto2-optimized.png"
@@ -528,29 +422,33 @@
 
   <main class="photo-layout" aria-label="Fotografie layout">
     <h1 class="photo-title">photogrpahy</h1>
+    <p class="photo-subtitle">"Mijn blik op nuance, ritme en ruimte."</p>
 
     <section class="block b1">
       <img loading="eager" fetchpriority="high" decoding="async" src="./Ann-SophieVerschuere-1.jpg" alt="Foto 1">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-2.jpg" alt="Foto 2">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-3.jpg" alt="Foto 3">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-4.jpg" alt="Foto 4">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-5.jpg" alt="Foto 5">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-6.jpg" alt="Foto 6">
+      <img loading="eager" decoding="async" src="./Ann-SophieVerschuere-2.jpg" alt="Foto 2">
+      <img loading="eager" decoding="async" src="./Ann-SophieVerschuere-3.jpg" alt="Foto 3">
+      <img loading="eager" decoding="async" src="./Ann-SophieVerschuere-4.jpg" alt="Foto 4">
+      <img loading="eager" decoding="async" src="./Ann-SophieVerschuere-5.jpg" alt="Foto 5">
+      <img loading="eager" decoding="async" src="./Ann-SophieVerschuere-6.jpg" alt="Foto 6">
     </section>
 
     <section class="block b2">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-7.jpg" alt="Foto 7">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-8.jpg" alt="Foto 8">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-9.jpg" alt="Foto 9">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-10.jpg" alt="Foto 10">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-25.jpg" alt="Foto 7">
     </section>
 
     <section class="block b3">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-11.jpg" alt="Foto 11">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-12.jpg" alt="Foto 12">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-31.jpg" alt="Foto 8">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-32.jpg" alt="Foto 9">
     </section>
 
     <section class="block b4">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-7.jpg" alt="Foto 10">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-8.jpg" alt="Foto 11">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-9.jpg" alt="Foto 12">
+    </section>
+
+    <section class="block b5">
       <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-13.jpg" alt="Foto 13">
       <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-14.jpg" alt="Foto 14">
       <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-15.jpg" alt="Foto 15">
@@ -558,57 +456,29 @@
       <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-17.jpg" alt="Foto 17">
     </section>
 
-    <section class="block b5">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-20.jpg" alt="Foto 20">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-18.jpg" alt="Foto 18">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-19.jpg" alt="Foto 19">
-    </section>
-
     <section class="block b6">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-21.jpg" alt="Foto 21">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-22.jpg" alt="Foto 22">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-23.jpg" alt="Foto 23">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-24.jpg" alt="Foto 24">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-33.jpg" alt="Foto 18">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-27.jpg" alt="Foto 19">
     </section>
 
     <section class="block b7">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-25.jpg" alt="Foto 25">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-11.jpg" alt="Foto 20">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-12.jpg" alt="Foto 21">
     </section>
 
     <section class="block b8">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-33.jpg" alt="Foto 33">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-34.jpg" alt="Foto 34">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-26.jpg" alt="Foto 22">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-19.jpg" alt="Foto 23">
     </section>
 
     <section class="block b9">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-31.jpg" alt="Foto 31">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-32.jpg" alt="Foto 32">
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-18.jpg" alt="Foto 24">
     </section>
 
     <section class="block b10">
-      <img loading="lazy" decoding="async" class="b10-main" src="./foto26-27-28.jpg" alt="Foto 26-27-28">
-      <div class="b10-bottom">
-        <img loading="lazy" decoding="async" class="b10-29" src="./Ann-SophieVerschuere-29.jpg" alt="Foto 29">
-        <img loading="lazy" decoding="async" class="b10-30" src="./Ann-SophieVerschuere-30.jpg" alt="Foto 30">
-      </div>
+      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-34.jpg" alt="Foto 25">
     </section>
 
-    <section class="block b11">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-43.jpg" alt="Foto 43">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-44.jpg" alt="Foto 44">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-45.jpg" alt="Foto 45">
-    </section>
-
-    <section class="block b12">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-35.jpg" alt="Foto 35">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-36.jpg" alt="Foto 36">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-37.jpg" alt="Foto 37">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-38.jpg" alt="Foto 38">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-39.jpg" alt="Foto 39">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-40.jpg" alt="Foto 40">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-41.jpg" alt="Foto 41">
-      <img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-42.jpg" alt="Foto 42">
-    </section>
   </main>
   <footer class="site-footer">
     &copy; Ann-Sophie Verschuere I
