@@ -78,6 +78,7 @@
     :root {
       --page-bg: #e5e5d9;
       --text: #3a5575;
+      --portrait-ratio: 0.546;
     }
 
     * {
@@ -127,10 +128,11 @@
       align-items: stretch;
       min-width: 0;
       overflow: hidden;
+      width: min(42vw, calc(100vh * var(--portrait-ratio)));
     }
 
     .about-visual img.main-photo {
-      width: auto;
+      width: 100%;
       height: 100%;
       display: block;
       object-fit: contain;
