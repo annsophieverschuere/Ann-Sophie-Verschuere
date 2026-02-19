@@ -8,8 +8,11 @@
   <meta name="author" content="Ann-Sophie Verschuere">
   <meta name="copyright" content="© Ann-Sophie Verschuere">
   <meta name="theme-color" content="#e5e5d9">
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://annsophieverschuere.be/">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="alternate" hreflang="nl-BE" href="https://annsophieverschuere.be/">
+  <link rel="alternate" hreflang="x-default" href="https://annsophieverschuere.be/">
   <meta name="geo.region" content="BE-VOV">
   <meta name="geo.placename" content="Gent">
   <meta name="geo.position" content="51.054342;3.717424">
@@ -20,14 +23,17 @@
   <meta property="og:title" content="Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent">
   <meta property="og:description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
   <meta property="og:url" content="https://annsophieverschuere.be/">
-  <meta property="og:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta property="og:image" content="https://annsophieverschuere.be/Foto1-optimized.jpg">
   <meta property="og:image:alt" content="Portfolio landingpagina van Ann-Sophie Verschuere">
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="800">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ann-Sophie Verschuere | Grafisch & Interieur Vormgever in Gent">
   <meta name="twitter:description" content="Ann-Sophie Verschuere is grafisch en interieur vormgever in Gent. Ontdek haar portfolio met interieurprojecten, grafisch ontwerp en fotografie.">
-  <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1-optimized.jpg">
   <meta name="twitter:image:alt" content="Portfolio landingpagina van Ann-Sophie Verschuere">
   <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="preload" as="font" href="./Signerica_Fat.ttf" type="font/ttf" crossorigin>
   <link rel="preload" as="image" href="./Foto1-optimized.jpg">
   <script type="application/ld+json">
     {
@@ -36,7 +42,8 @@
       "name": "Ann-Sophie Verschuere",
       "jobTitle": "Grafisch en Interieur Vormgever",
       "url": "https://annsophieverschuere.be/",
-      "image": "https://annsophieverschuere.be/Foto1.jpg",
+      "image": "https://annsophieverschuere.be/Foto1-optimized.jpg",
+      "email": "mailto:info@annsophieverschuere.be",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Gent",
@@ -316,10 +323,12 @@
 
     .animate__customBackInDown {
       animation-name: customBackInDown;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .animate__customBackOutDown {
       animation-name: customBackOutDown;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @keyframes customOverviewOutDown {
@@ -342,7 +351,14 @@
 
     .animate__customOverviewOutDown {
       animation-name: customOverviewOutDown;
-      --animate-duration: 1.7s;
+      --animate-duration: 0.9s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: both;
+    }
+
+    #overviewPage.animate__customBackInDown {
+      --animate-duration: 0.9s;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
       animation-fill-mode: both;
     }
 
@@ -386,13 +402,22 @@
     const overviewLinks = document.querySelectorAll(".overview-menu a");
     const urlParams = new URLSearchParams(window.location.search);
     const forceOverview = urlParams.get("view") === "overview";
+    const navEntry = performance.getEntriesByType("navigation")[0];
+    const isHistoryRestore = navEntry && navEntry.type === "back_forward";
     let isExiting = false;
     let isOverviewNavigating = false;
+    let autoExitTimer;
 
-    if (forceOverview) {
+    const showOverviewNow = () => {
+      landingPage.classList.remove("animate__customBackInDown", "animate__customBackOutDown");
       landingPage.classList.add("hidden");
-      overviewPage.classList.remove("hidden");
-      overviewPage.classList.add("animate__fadeIn");
+      overviewPage.classList.remove("hidden", "animate__customOverviewOutDown", "animate__fadeIn");
+      overviewPage.classList.add("animate__customBackInDown");
+      document.body.style.background = "";
+    };
+
+    if (forceOverview || isHistoryRestore || window.location.hash === "#overviewPage") {
+      showOverviewNow();
       window.history.replaceState({}, "", "./index.html");
     } else {
       landingPage.classList.add("animate__customBackInDown");
@@ -405,20 +430,28 @@
 
         const onExitDone = () => {
           landingPage.classList.add("hidden");
-          overviewPage.classList.remove("hidden");
-          overviewPage.classList.add("animate__fadeIn");
+          overviewPage.classList.remove("hidden", "animate__customOverviewOutDown", "animate__fadeIn");
+          overviewPage.classList.add("animate__customBackInDown");
+          document.body.style.background = "";
         };
 
         landingPage.addEventListener("animationend", onExitDone, { once: true });
       };
 
-      const autoExitTimer = setTimeout(startExit, 5000);
+      autoExitTimer = setTimeout(startExit, 5000);
 
       landingPage.addEventListener("click", () => {
         clearTimeout(autoExitTimer);
         startExit();
       });
     }
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        clearTimeout(autoExitTimer);
+        showOverviewNow();
+      }
+    });
 
     const navigateFromOverviewWithBounce = (event) => {
       const link = event.currentTarget;

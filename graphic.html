@@ -8,8 +8,11 @@
   <meta name="author" content="Ann-Sophie Verschuere">
   <meta name="copyright" content="© Ann-Sophie Verschuere">
   <meta name="theme-color" content="#ffffff">
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://annsophieverschuere.be/graphic.html">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="alternate" hreflang="nl-BE" href="https://annsophieverschuere.be/graphic.html">
+  <link rel="alternate" hreflang="x-default" href="https://annsophieverschuere.be/graphic.html">
   <meta name="geo.region" content="BE-VOV">
   <meta name="geo.placename" content="Gent">
   <meta name="geo.position" content="51.054342;3.717424">
@@ -20,15 +23,18 @@
   <meta property="og:title" content="Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere">
   <meta property="og:description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
   <meta property="og:url" content="https://annsophieverschuere.be/graphic.html">
-  <meta property="og:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta property="og:image" content="https://annsophieverschuere.be/Graphic-og.jpg">
   <meta property="og:image:alt" content="Grafisch ontwerp portfolio van Ann-Sophie Verschuere">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1600">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere">
   <meta name="twitter:description" content="Bekijk grafisch ontwerp van Ann-Sophie Verschuere: branding, layout en visuele concepten met een sterke esthetische lijn.">
-  <meta name="twitter:image" content="https://annsophieverschuere.be/Foto1.jpg">
+  <meta name="twitter:image" content="https://annsophieverschuere.be/Graphic-og.jpg">
   <meta name="twitter:image:alt" content="Grafisch ontwerp portfolio van Ann-Sophie Verschuere">
   <link rel="icon" type="image/png" href="./favicon.png">
-  <link rel="preload" as="image" href="./Ann-SophieVerschuere-foto01.png">
+  <link rel="preload" as="font" href="./Signerica_Fat.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="image" href="./Foto2-optimized.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
@@ -39,9 +45,11 @@
       "name": "Grafisch Ontwerp Portfolio | Ann-Sophie Verschuere",
       "url": "https://annsophieverschuere.be/graphic.html",
       "inLanguage": "nl-BE",
+      "description": "Grafisch ontwerpportfolio van Ann-Sophie Verschuere met branding, verpakking, cover en visuele identiteit.",
       "about": {
         "@type": "Person",
         "name": "Ann-Sophie Verschuere",
+        "email": "mailto:info@annsophieverschuere.be",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Gent",
@@ -75,8 +83,9 @@
       overflow-x: hidden;
     }
 
-    body.transition-zoom-in {
-      animation: pageZoomIn 0.58s ease both;
+    body.transition-zoom-in .graphic-layout,
+    body.transition-zoom-in .site-footer {
+      animation: pageZoomIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
       transform-origin: center;
     }
 
@@ -91,13 +100,30 @@
       }
     }
 
+    body.transition-exit-down .graphic-layout,
+    body.transition-exit-down .site-footer {
+      animation: customOverviewOutDown 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+      transform-origin: center;
+    }
+
+    @keyframes customOverviewOutDown {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(160vh) scale(0.8);
+        opacity: 0;
+      }
+    }
+
     .home-icon {
       position: fixed;
       top: 24px;
       right: 24px;
       width: 60px;
       z-index: 20;
-      transition: transform 0.25s ease;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
       transform-origin: center;
     }
 
@@ -271,14 +297,14 @@
     <h1 class="graphic-title">graphic design</h1>
     <p class="graphic-subtitle">"Mijn blik op concept, typografie en identiteit."</p>
     <section class="graphic-grid">
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;visitekaartje"><img loading="lazy" fetchpriority="high" decoding="async" src="./Ann-SophieVerschuere-foto01.png" alt="Graphic project 1"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;logo"><img loading="lazy" fetchpriority="high" decoding="async" src="./Ann-SophieVerschuere-foto01.png" alt="Graphic project 1"></figure>
       <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;verpakking"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto03.png" alt="Graphic project 2"></figure>
       <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;branding"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto10.png" alt="Graphic project 3"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;sticker"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto02.png" alt="Graphic project 4"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;logo"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto02.png" alt="Graphic project 4"></figure>
       <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;cover"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto05.png" alt="Graphic project 5"></figure>
       <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;welkomskaartje"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto04.png" alt="Graphic project 6"></figure>
       <figure class="graphic-card" tabindex="0" data-description="ontwerp&#10;platenhoes"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto06.png" alt="Graphic project 7"></figure>
-      <figure class="graphic-card" tabindex="0" data-description="photoshop&#10;collage 1"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto07.png" alt="Graphic project 8"></figure>
+      <figure class="graphic-card" tabindex="0" data-description="photoshop&#10;collage"><img loading="lazy" decoding="async" src="./Ann-SophieVerschuere-foto07.png" alt="Graphic project 8"></figure>
     </section>
   </main>
   <footer class="site-footer">
@@ -286,6 +312,7 @@
     <a href="mailto:info@annsophieverschuere.be">info@annsophieverschuere.be</a>
   </footer>
   <script>
+    const overviewLink = document.querySelector('a[aria-label="Terug naar overzicht"]');
     const homeIcon = document.querySelector(".home-icon");
     if (homeIcon) {
       const defaultSrc = homeIcon.dataset.defaultSrc;
@@ -302,6 +329,39 @@
       homeIcon.addEventListener("touchstart", showHover, { passive: true });
       homeIcon.addEventListener("touchend", showDefault);
       homeIcon.addEventListener("touchcancel", showDefault);
+    }
+
+    let isLeavingOverview = false;
+    if (overviewLink) {
+      overviewLink.addEventListener("click", (event) => {
+        if (isLeavingOverview) {
+          event.preventDefault();
+          return;
+        }
+        if (
+          event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+          event.button === 1
+        ) {
+          return;
+        }
+        event.preventDefault();
+        isLeavingOverview = true;
+        document.body.classList.add("transition-exit-down");
+
+        const targetUrl = overviewLink.href;
+        const animatedTarget = document.querySelector(".graphic-layout");
+        let navigated = false;
+        const goToOverview = () => {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = targetUrl;
+        };
+
+        if (animatedTarget) {
+          animatedTarget.addEventListener("animationend", goToOverview, { once: true });
+        }
+        setTimeout(goToOverview, 900);
+      });
     }
 
     const params = new URLSearchParams(window.location.search);

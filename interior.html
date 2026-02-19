@@ -70,8 +70,9 @@
       overflow-x: hidden;
     }
 
-    body.transition-zoom-in {
-      animation: pageZoomIn 0.58s ease both;
+    body.transition-zoom-in h1,
+    body.transition-zoom-in .site-footer {
+      animation: pageZoomIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
       transform-origin: center;
     }
 
@@ -86,11 +87,34 @@
       }
     }
 
+    body.transition-exit-down h1,
+    body.transition-exit-down .site-footer {
+      animation: customOverviewOutDown 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+      transform-origin: center;
+    }
+
+    @keyframes customOverviewOutDown {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(160vh) scale(0.8);
+        opacity: 0;
+      }
+    }
+
     .home-icon {
       position: fixed;
       top: 30px;
       right: 30px;
       width: 60px;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-origin: center;
+    }
+
+    .home-icon:hover {
+      transform: scale(1.15);
     }
 
     h1 {
@@ -142,6 +166,7 @@
     <a href="mailto:info@annsophieverschuere.be">info@annsophieverschuere.be</a>
   </footer>
   <script>
+    const overviewLink = document.querySelector('a[aria-label="Terug naar overzicht"]');
     const homeIcon = document.querySelector(".home-icon");
     if (homeIcon) {
       const defaultSrc = homeIcon.dataset.defaultSrc;
@@ -158,6 +183,39 @@
       homeIcon.addEventListener("touchstart", showHover, { passive: true });
       homeIcon.addEventListener("touchend", showDefault);
       homeIcon.addEventListener("touchcancel", showDefault);
+    }
+
+    let isLeavingOverview = false;
+    if (overviewLink) {
+      overviewLink.addEventListener("click", (event) => {
+        if (isLeavingOverview) {
+          event.preventDefault();
+          return;
+        }
+        if (
+          event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+          event.button === 1
+        ) {
+          return;
+        }
+        event.preventDefault();
+        isLeavingOverview = true;
+        document.body.classList.add("transition-exit-down");
+
+        const targetUrl = overviewLink.href;
+        const animatedTarget = document.querySelector("h1");
+        let navigated = false;
+        const goToOverview = () => {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = targetUrl;
+        };
+
+        if (animatedTarget) {
+          animatedTarget.addEventListener("animationend", goToOverview, { once: true });
+        }
+        setTimeout(goToOverview, 900);
+      });
     }
 
     const params = new URLSearchParams(window.location.search);
