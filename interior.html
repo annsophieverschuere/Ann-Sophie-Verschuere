@@ -211,6 +211,21 @@
       background: transparent;
     }
 
+    .interior-note {
+      grid-column: 1 / -1;
+      margin: clamp(-14px, -0.7vh, -8px) 0 0;
+      width: 100%;
+      color: var(--blue);
+      font-family: "Barlow Condensed", sans-serif;
+      font-style: italic;
+      font-size: clamp(9px, 0.9vw, 12px);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      text-align: right;
+    }
+
+
     .site-footer {
       position: static;
       width: 100%;
@@ -280,7 +295,7 @@
 
     <section class="interior-row top" aria-label="Interior renders boven">
       <img src="./Interior1.png" alt="Interior project 1" loading="eager" fetchpriority="high" decoding="async">
-      <img src="./Interior2.jpg" alt="Interior project 2" loading="lazy" decoding="async">
+      <img src="./Interior2.png" alt="Interior project 2" loading="lazy" decoding="async">
     </section>
 
     <section class="interior-row middle" aria-label="Interior planwerk">
@@ -290,6 +305,7 @@
     <section class="interior-row bottom" aria-label="Interior renders onder">
       <img src="./Interior4.png" alt="Interior project 4" loading="lazy" decoding="async">
       <img src="./Interior5.png" alt="Interior project 5" loading="lazy" decoding="async">
+      <p class="interior-note">ontwerp vakantieverblijf</p>
     </section>
   </main>
 
