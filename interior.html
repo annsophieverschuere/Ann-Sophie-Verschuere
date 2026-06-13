@@ -37,6 +37,7 @@
   <link rel="preload" as="image" href="./Interior0.png">
   <link rel="preload" as="image" href="./Interior1-optimized.jpg">
   <link rel="preload" as="image" href="./Interior_3.jpg">
+  <link rel="preload" as="image" href="./InteriorA.jpg">
   <link rel="preload" as="image" href="./Foto2-optimized.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,17 +180,20 @@
       width: min(100%, 1180px);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(18px, 2.2vw, 32px);
       align-items: start;
+      grid-auto-rows: 1fr;
       padding-top: clamp(24px, 7vh, 84px);
     }
 
     .interior-card {
       margin: 0;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: auto auto;
+      align-content: start;
       gap: clamp(8px, 1vh, 12px);
+      height: 100%;
     }
 
     .interior-card-link {
@@ -282,7 +286,7 @@
     .site-footer {
       position: static;
       width: 100%;
-      padding: clamp(10px, 1.8vh, 18px) 16px max(24px, env(safe-area-inset-bottom));
+      padding: calc(clamp(10px, 1.8vh, 18px) * 1.2) 16px max(24px, env(safe-area-inset-bottom));
       box-sizing: border-box;
       text-align: center;
       color: #3a5575;
@@ -302,6 +306,54 @@
     .site-footer a:hover,
     .site-footer a:focus-visible {
       text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+      html,
+      body {
+        height: 100dvh;
+        overflow: hidden;
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      .interior-layout {
+        flex: 1;
+        width: min(100%, 1120px);
+        padding: clamp(78px, 12vh, 116px) clamp(24px, 3vw, 40px) clamp(8px, 1.4vh, 16px);
+        gap: clamp(12px, 2vh, 20px);
+        justify-content: flex-start;
+        overflow: hidden;
+      }
+
+      .interior-title {
+        margin: 0 0 clamp(6px, 1vh, 12px);
+      }
+
+      .interior-gallery {
+        flex: 1;
+        min-height: 0;
+        width: min(100%, 940px, calc((100dvh - 250px) * 1.46));
+        gap: clamp(12px, 1.6vw, 20px) clamp(16px, 1.8vw, 24px);
+        padding-top: 0;
+        align-content: center;
+        justify-content: center;
+      }
+
+      .interior-card {
+        min-height: 0;
+      }
+
+      .interior-note {
+        font-size: clamp(9px, 0.8vw, 13px);
+      }
+
+      .site-footer {
+        padding-top: calc(8px * 1.2);
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+      }
     }
 
     @media (max-width: 430px) {
@@ -344,6 +396,13 @@
     <h1 class="interior-title">interior design</h1>
 
     <section class="interior-gallery" aria-label="Interieurvisualisaties van projecten">
+      <figure class="interior-card">
+        <a class="interior-card-link" href="./Project-IV_Ann-SophieVerschuere.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open PDF van interieurproject 4">
+          <img src="./InteriorA.jpg" alt="Interieurvisualisatie van woningontwerp door Ann-Sophie Verschuere" loading="lazy" decoding="async">
+          <span class="interior-card-overlay">ontdek het ontwerp <span class="interior-card-overlay-arrow">→</span></span>
+        </a>
+        <figcaption class="interior-note">ontwerp woning</figcaption>
+      </figure>
       <figure class="interior-card">
         <a class="interior-card-link" href="./Project-I_Ann-SophieVerschuere.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open PDF van interieurproject 1">
           <img src="./Interior0.png" width="1536" height="1024" alt="Interieurvisualisatie van keuken en leefruimte in vakantiewoning door Ann-Sophie Verschuere" loading="eager" fetchpriority="high" decoding="async">
