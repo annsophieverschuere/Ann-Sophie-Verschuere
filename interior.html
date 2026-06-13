@@ -162,7 +162,7 @@
     }
 
     .interior-title {
-      margin: clamp(16px, 4vh, 48px) 0 clamp(20px, 4vh, 52px);
+      margin: clamp(16px, 4vh, 48px) 0 calc(clamp(20px, 4vh, 52px) * 1.1);
       text-align: center;
       color: var(--blue);
       font-family: "Signerica", "Signerica Fat", cursive;
@@ -323,20 +323,20 @@
         flex: 1;
         width: min(100%, 1120px);
         padding: clamp(78px, 12vh, 116px) clamp(24px, 3vw, 40px) clamp(8px, 1.4vh, 16px);
-        gap: clamp(12px, 2vh, 20px);
+        gap: clamp(16px, 2.4vh, 24px);
         justify-content: flex-start;
         overflow: hidden;
       }
 
       .interior-title {
-        margin: 0 0 clamp(6px, 1vh, 12px);
+        margin: clamp(16px, 4vh, 48px) 0 calc(clamp(20px, 4vh, 52px) * 1.1);
       }
 
       .interior-gallery {
         flex: 1;
         min-height: 0;
-        width: min(100%, 940px, calc((100dvh - 250px) * 1.46));
-        gap: clamp(12px, 1.6vw, 20px) clamp(16px, 1.8vw, 24px);
+        width: min(100%, 860px, calc((100dvh - 320px) * 1.42));
+        gap: clamp(10px, 1.2vw, 16px) clamp(14px, 1.6vw, 20px);
         padding-top: 0;
         align-content: center;
         justify-content: center;
